@@ -28,9 +28,9 @@ The technical advantage of x402 lies in its **elimination of friction and instan
 
 For AI agents to execute high-frequency and complex trades in DeFi markets, the underlying blockchain must satisfy specific performance metrics to an extreme degree. These requirements are absolute in the Machine Economy, where millisecond advantages determine success, unlike human trading.
 
-* **Ultra-Low Latency:** The time from an AI agent detecting an arbitrage opportunity or instantaneous liquidity shift to the actual on-chain transaction completion must be as short as possible. This reduction in decision-to-execution time is critical for the success of HFT strategies.
-* **High Throughput:** AI agents constantly access market data, purchase compute resources, and execute trades, requiring the network to have the capacity to process a high volume of micro-transactions concurrently and without delay.
-* **Ultra-Low Cost:** To make sub-cent level micropayments ($\$0.005$, for example) enabled by x402 economically viable, the network's base transaction fee must be stable and reliably below **\$0.01**. High fees would instantly negate the profit margins of an AI agent's frequent API calls and trades.
+-   **Ultra-Low Latency:** The time from an AI agent detecting an arbitrage opportunity or instantaneous liquidity shift to the actual on-chain transaction completion must be as short as possible. This reduction in decision-to-execution time is critical for the success of HFT strategies.
+-   **High Throughput:** AI agents constantly access market data, purchase compute resources, and execute trades, requiring the network to have the capacity to process a high volume of micro-transactions concurrently and without delay.
+-   **Ultra-Low Cost:** To make sub-cent level micropayments ($\$0.005$, for example) enabled by x402 economically viable, the network's base transaction fee must be stable and reliably below **\$0.01**. High fees would instantly negate the profit margins of an AI agent's frequent API calls and trades.
 
 ### 2.2 Quantitative Platform Comparison: Solana vs. Base/L2s
 
@@ -38,13 +38,13 @@ Our business specializes in high-frequency financial transactions by AI agents, 
 
 #### Key Blockchain Performance Comparison: Suitability for the AI Agent Economy
 
-| Metric | Solana (L1) | Base (Optimistic L2) | Ethereum (Base L1) | AI Agent Optimal Requirement |
-| :--- | :--- | :--- | :--- | :--- |
-| **Block Time** | 400 milliseconds | 2 seconds | 12 seconds | **< 1 second (HFT essential)** |
-| **Observed TPS** | 1,000+ | 98 | 15–30 | **1,000+ (High-Frequency M2M Comm.)** |
-| **Transaction Cost (Nominal)** | Approx. \$0.00025 | < \$0.0001 (Nominal Gas) | \$1–\$50+ | **< \$0.01 (Micropayment feasibility)** |
-| **Finality (Time to Confirmation)** | ~12.8 seconds (Rapid) | 13+ minutes (Rollup Delay) | 12+ seconds (multiple blocks) | **< 10 seconds (Financial Transaction Certainty)** |
-| **HFT/DeFi Suitability** | Extremely High (Low Latency, Parallel Processing) | Low (Rollup Finality Delay) | Low (L1 Cost, L2 Delay) | **Fastest Execution Environment** |
+| Metric                              | Solana (L1)                                       | Base (Optimistic L2)        | Ethereum (Base L1)            | AI Agent Optimal Requirement                       |
+| :---------------------------------- | :------------------------------------------------ | :-------------------------- | :---------------------------- | :------------------------------------------------- |
+| **Block Time**                      | 400 milliseconds                                  | 2 seconds                   | 12 seconds                    | **< 1 second (HFT essential)**                     |
+| **Observed TPS**                    | 1,000+                                            | 98                          | 15–30                         | **1,000+ (High-Frequency M2M Comm.)**              |
+| **Transaction Cost (Nominal)**      | Approx. \$0.00025                                 | < \$0.0001 (Nominal Gas)    | \$1–\$50+                     | **< \$0.01 (Micropayment feasibility)**            |
+| **Finality (Time to Confirmation)** | ~12.8 seconds (Rapid)                             | 13+ minutes (Rollup Delay)  | 12+ seconds (multiple blocks) | **< 10 seconds (Financial Transaction Certainty)** |
+| **HFT/DeFi Suitability**            | Extremely High (Low Latency, Parallel Processing) | Low (Rollup Finality Delay) | Low (L1 Cost, L2 Delay)       | **Fastest Execution Environment**                  |
 
 ### 2.3 Platform Selection Conclusion: The Decisive Advantage of Solana
 
@@ -66,13 +66,13 @@ The proposed business is an **AI-Driven Autonomous Concentrated Liquidity Manage
 
 The core functionalities of the **X-Liquidity Engine** are:
 
-* **Dynamic Rebalancing via Predictive Analytics:** An integrated AI model continuously analyzes real-time market sentiment, volatility, and deep on-chain data (e.g., whale transaction movements). Based on this analysis, it dynamically sets the optimal liquidity range and executes rapid rebalancing. Solana's **400ms block time** allows this rebalancing to be processed as a **single, atomic transaction**, enhancing execution efficiency.
-* **Maximizing Execution Efficiency (Integration with Jupiter and Jito):**
-    * **Jupiter (DEX Aggregator):** The protocol will utilize Jupiter's DEX aggregation SDK—the liquidity backbone of the Solana ecosystem—for all swap executions when rebalancing LP positions or swapping assets based on AI predictions. This minimizes slippage during execution, ensures trades are completed at the optimal price, and maximizes LP returns.
-    * **Jito (MEV & Execution Optimization):** To ensure the success of high-frequency rebalancing and arbitrage, transaction sequencing optimization services will be utilized to mitigate market manipulation and front-running risks.
-* **x402 API Gateway:** The protocol will offer high-value data feeds—such as the high-precision **"Next Rebalance Prediction Signal"** and **"Market Microstructure Analysis"**—generated by its models to external trading AI agents. The x402 Protocol enables the on-demand sale of these information services via **ultra-low micropayments** (e.g., \$0.005).
-* **Agent Orchestration:** It will leverage the **Model Context Protocol (MCP)** to provide an interface where users and institutions can define and control liquidity strategies using natural language via an LLM.
-* **On-Chain Audit Log:** All AI decision rationale and execution history will be transparently recorded on Solana to ensure regulatory compliance.
+-   **Dynamic Rebalancing via Predictive Analytics:** An integrated AI model continuously analyzes real-time market sentiment, volatility, and deep on-chain data (e.g., whale transaction movements). Based on this analysis, it dynamically sets the optimal liquidity range and executes rapid rebalancing. Solana's **400ms block time** allows this rebalancing to be processed as a **single, atomic transaction**, enhancing execution efficiency.
+-   **Maximizing Execution Efficiency (Integration with Jupiter and Jito):**
+    -   **Jupiter (DEX Aggregator):** The protocol will utilize Jupiter's DEX aggregation SDK—the liquidity backbone of the Solana ecosystem—for all swap executions when rebalancing LP positions or swapping assets based on AI predictions. This minimizes slippage during execution, ensures trades are completed at the optimal price, and maximizes LP returns.
+    -   **Jito (MEV & Execution Optimization):** To ensure the success of high-frequency rebalancing and arbitrage, transaction sequencing optimization services will be utilized to mitigate market manipulation and front-running risks.
+-   **x402 API Gateway:** The protocol will offer high-value data feeds—such as the high-precision **"Next Rebalance Prediction Signal"** and **"Market Microstructure Analysis"**—generated by its models to external trading AI agents. The x402 Protocol enables the on-demand sale of these information services via **ultra-low micropayments** (e.g., \$0.005).
+-   **Agent Orchestration:** It will leverage the **Model Context Protocol (MCP)** to provide an interface where users and institutions can define and control liquidity strategies using natural language via an LLM.
+-   **On-Chain Audit Log:** All AI decision rationale and execution history will be transparently recorded on Solana to ensure regulatory compliance.
 
 While existing CLM protocols (e.g., Kamino Finance) focus on "automation," the X-Liquidity Engine centers its competitive advantage on **"speed, high-precision, and compliance."** By pivoting the primary revenue stream to x402, the service can be fragmented into the smallest possible granularity, contributing to cost optimization for the AI Agent Economy.
 
@@ -82,20 +82,20 @@ Revenue will primarily be composed of a performance fee on the value generated b
 
 #### Proposed Business Revenue Model: Components and Value Creation
 
-| Revenue Stream | Detail | x402 Protocol Relevance | Feature and Value Creation |
-| :--- | :--- | :--- | :--- |
-| **1. Liquidity Management Fee** | Performance fee on profits generated for LPs by AI optimization (e.g., **5-10%**) | Indirect (Smart contract auto-collection) | Provides competitively high APY, increasing Protocol TVL. |
-| **2. x402 Facilitator Fee** | Fee for payment verification services (our Facilitator validates and settles Solana transactions) | Direct: Collected per transaction | Confirms AI agent transactions instantly and securely, generating infrastructure revenue. |
-| **3. Premium API Access** | Usage fee for data feeds generated by the AI prediction model (e.g., "Next Volatility Forecast," "Market Microstructure Analysis") | Direct: Micropayment API usage fee | Provides high-precision information on-demand. x402 allows for ultra-low billing of **\$0.005**, etc. |
-| **4. Token Supply Management** | Long-term value maintenance through supply/demand stabilization of the native token ($XLIQ) | Indirect: Ecosystem stabilization | Uses AI models for elastic supply adjustment, ensuring market stability and investor confidence. |
+| Revenue Stream                  | Detail                                                                                                                             | x402 Protocol Relevance                   | Feature and Value Creation                                                                            |
+| :------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------- | :---------------------------------------------------------------------------------------------------- |
+| **1. Liquidity Management Fee** | Performance fee on profits generated for LPs by AI optimization (e.g., **5-10%**)                                                  | Indirect (Smart contract auto-collection) | Provides competitively high APY, increasing Protocol TVL.                                             |
+| **2. x402 Facilitator Fee**     | Fee for payment verification services (our Facilitator validates and settles Solana transactions)                                  | Direct: Collected per transaction         | Confirms AI agent transactions instantly and securely, generating infrastructure revenue.             |
+| **3. Premium API Access**       | Usage fee for data feeds generated by the AI prediction model (e.g., "Next Volatility Forecast," "Market Microstructure Analysis") | Direct: Micropayment API usage fee        | Provides high-precision information on-demand. x402 allows for ultra-low billing of **\$0.005**, etc. |
+| **4. Token Supply Management**  | Long-term value maintenance through supply/demand stabilization of the native token ($XLIQ)                                        | Indirect: Ecosystem stabilization         | Uses AI models for elastic supply adjustment, ensuring market stability and investor confidence.      |
 
 The native token, **$XLIQ**, will incorporate **AI-Driven Tokenomics (A-Tokenomics)**. The token supply will be dynamically adjusted by a machine learning algorithm based on on-chain data such as TVL, volatility, and x402 transaction volume. This approach—where the AI continuously analyzes market data, predicts supply/demand imbalances, and adjusts token parameters—enhances market stability and contributes to the long-term value retention and investor confidence.
 
 ### 3.3 Technical Execution Roadmap (Summary)
 
-* **Phase 1 (MVP/Alpha):** Develop an MVP for basic concentrated liquidity management using the **Solana Agent Kit** and integrating with major DEXs like Raydium. Initial x402 integration testing will utilize x402.org or PayAI Facilitator. The Jupiter SDK will also be integrated to optimize swaps.
-* **Phase 2 (Beta/Launch):** Integrate the proprietary AI prediction model for dynamic rebalancing execution. Implement the natural language control interface using an LLM via the **Model Context Protocol (MCP)**. Commence offering premium data feeds through the x402 API Gateway.
-* **Phase 3 (Scale-Up/Institutional):** Fully deploy A-Tokenomics and complete the implementation of the comprehensive compliance framework detailed in Section IV (on-chain audit logs, mandatory policy-controlled wallets, ZKPs integration). This will establish market leadership by incorporating regulatory compliance, targeting institutional and Japanese traders who prioritize this factor.
+-   **Phase 1 (MVP/Alpha):** Develop an MVP for basic concentrated liquidity management using the **Solana Agent Kit** and integrating with major DEXs like Raydium. Initial x402 integration testing will utilize x402.org or PayAI Facilitator. The Jupiter SDK will also be integrated to optimize swaps.
+-   **Phase 2 (Beta/Launch):** Integrate the proprietary AI prediction model for dynamic rebalancing execution. Implement the natural language control interface using an LLM via the **Model Context Protocol (MCP)**. Commence offering premium data feeds through the x402 API Gateway.
+-   **Phase 3 (Scale-Up/Institutional):** Fully deploy A-Tokenomics and complete the implementation of the comprehensive compliance framework detailed in Section IV (on-chain audit logs, mandatory policy-controlled wallets, ZKPs integration). This will establish market leadership by incorporating regulatory compliance, targeting institutional and Japanese traders who prioritize this factor.
 
 ---
 
@@ -115,18 +115,18 @@ International regulators, including Japan's Financial Services Agency (FSA), emp
 
 The X-Liquidity Engine will overcome this challenge by implementing the following XAI (eXplainable AI) and compliance strategies on Solana:
 
-* **Immutable Record of Rationale (On-Chain Audit Log):** When the AI agent executes a liquidity rebalance or trade, the core input data used for the decision (prediction scores, sentiment data) and the version of the AI model are recorded immutably as metadata within the Solana transaction. Solana's high transparency and low cost make this audit log economically feasible. This provides regulators and auditors with a verifiable record of the AI's "thought process," distinguishing it from opaque trading bots. This transparency is a decisive factor for targeting compliance-focused institutional investors (a key HFT client base).
-* **Automated AML/KYC and DID Integration:** Smart contracts can be encoded with AML/KYC requirements. The protocol will introduce a mechanism where AI agents interact with Decentralized ID (DID) systems to automatically perform customer identity verification and sanction list screening. This ensures regulatory transparency while minimizing friction in AI-to-AI transactions.
-* **Adaptation to the Japanese Regulatory Environment:** While Japan adopts "best-effort" based guidelines (AI Operator Guidelines) for innovation promotion, the FSA demands explainability in the financial sector. Our **"Compliance-by-Design"** strategy, by making the AI's decision process transparent, highly aligns with this requirement, establishing a legal advantage for entry into the Asian, and specifically the Japanese, market.
-* **Human Oversight and Control:** Based on the principle of maximizing AI performance without substituting human expert judgment, a governance mechanism will be implemented that **mandates human operator review and approval** for specific high-risk transactions (e.g., capital fluctuations exceeding a defined risk boundary). This is a necessary safeguard to ensure the AI functions as a complementary tool with appropriate ethical and regulatory guardrails.
+-   **Immutable Record of Rationale (On-Chain Audit Log):** When the AI agent executes a liquidity rebalance or trade, the core input data used for the decision (prediction scores, sentiment data) and the version of the AI model are recorded immutably as metadata within the Solana transaction. Solana's high transparency and low cost make this audit log economically feasible. This provides regulators and auditors with a verifiable record of the AI's "thought process," distinguishing it from opaque trading bots. This transparency is a decisive factor for targeting compliance-focused institutional investors (a key HFT client base).
+-   **Automated AML/KYC and DID Integration:** Smart contracts can be encoded with AML/KYC requirements. The protocol will introduce a mechanism where AI agents interact with Decentralized ID (DID) systems to automatically perform customer identity verification and sanction list screening. This ensures regulatory transparency while minimizing friction in AI-to-AI transactions.
+-   **Adaptation to the Japanese Regulatory Environment:** While Japan adopts "best-effort" based guidelines (AI Operator Guidelines) for innovation promotion, the FSA demands explainability in the financial sector. Our **"Compliance-by-Design"** strategy, by making the AI's decision process transparent, highly aligns with this requirement, establishing a legal advantage for entry into the Asian, and specifically the Japanese, market.
+-   **Human Oversight and Control:** Based on the principle of maximizing AI performance without substituting human expert judgment, a governance mechanism will be implemented that **mandates human operator review and approval** for specific high-risk transactions (e.g., capital fluctuations exceeding a defined risk boundary). This is a necessary safeguard to ensure the AI functions as a complementary tool with appropriate ethical and regulatory guardrails.
 
 ### 4.3 Privacy Protection Strategy: Leveraging Zero-Knowledge Proofs (ZKPs) and Solana Privacy Infrastructure
 
 In an AI-driven financial market, protecting the AI agents' proprietary trading algorithms and users' sensitive investment strategies is key to competitive advantage and privacy compliance. To verify that an AI's actions comply with protocol rules without disclosing this confidential data on-chain, a strategy leveraging **Zero-Knowledge Proofs (ZKPs)** and Solana's privacy infrastructure will be adopted.
 
-* **Protecting and Verifying AI Model IP (Utilizing Archium):** To protect confidential information like an AI agent's liquidity management logic or market prediction model, technology provided by **Archium** will be utilized to perform trusted verifiable computation on encrypted data using Multi-Party Computation (MPC). This allows the AI's prediction results or rebalancing decisions to be proven to validators as compliant with protocol rules, while keeping competitive secrets like model weights and detailed logic private.
-* **Audit Log Expansion and Compression (Utilizing Light Protocol):** The voluminous on-chain audit logs and historical transaction data generated for compliance audits will be compressed using **Light Protocol's ZK Compression** technology. This effectively manages the L1 cost on Solana and addresses the state growth problem while retaining all necessary audit information.
-* **Managing the Performance-Privacy Trade-off:** The ZKP proof generation process is computationally intensive and can become a bottleneck for large-scale, dynamic computations (latency for verification has been suggested to have a median of ~2.79 seconds). To meet the speed requirements of HFT strategies operating on Solana's ultra-fast 400-millisecond block time, ZKP implementation will be limited to **low-frequency audit logic** like "compliance policy verification," prioritizing the speed of the HFT execution layer.
+-   **Protecting and Verifying AI Model IP (Utilizing Archium):** To protect confidential information like an AI agent's liquidity management logic or market prediction model, technology provided by **Archium** will be utilized to perform trusted verifiable computation on encrypted data using Multi-Party Computation (MPC). This allows the AI's prediction results or rebalancing decisions to be proven to validators as compliant with protocol rules, while keeping competitive secrets like model weights and detailed logic private.
+-   **Audit Log Expansion and Compression (Utilizing Light Protocol):** The voluminous on-chain audit logs and historical transaction data generated for compliance audits will be compressed using **Light Protocol's ZK Compression** technology. This effectively manages the L1 cost on Solana and addresses the state growth problem while retaining all necessary audit information.
+-   **Managing the Performance-Privacy Trade-off:** The ZKP proof generation process is computationally intensive and can become a bottleneck for large-scale, dynamic computations (latency for verification has been suggested to have a median of ~2.79 seconds). To meet the speed requirements of HFT strategies operating on Solana's ultra-fast 400-millisecond block time, ZKP implementation will be limited to **low-frequency audit logic** like "compliance policy verification," prioritizing the speed of the HFT execution layer.
 
 ---
 
