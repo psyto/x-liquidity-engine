@@ -1,0 +1,73 @@
+    Finished `release` profile [optimized] target(s) in 0.08s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src/lib.rs (/Users/hiroyusai/src/x-liquidity-engine/target/debug/deps/x_liquidity_engine-01b7f7f7ab5cddc2)
+
+Found a 'test' script in the Anchor.toml. Running it as a test suite!
+
+Running test suite: "/Users/hiroyusai/src/x-liquidity-engine/Anchor.toml"
+
+yarn run v1.22.22
+warning ../../package.json: No license field
+$ /Users/hiroyusai/src/x-liquidity-engine/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
+(node:52767) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:52767) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/hiroyusai/src/x-liquidity-engine/package.json.
+
+
+  x-liquidity-engine
+Initializing protocol config...
+Protocol config initialized
+    initialize_protocol_config
+Protocol config already initialized, skipping test
+      ✔ Initializes protocol configuration successfully
+      ✔ Fails if called twice
+    create_liquidity_position
+Create liquidity position tx: 5veZvcwp21Fg6pMoTdYDH4ZjuPi76TVPZU5vBNSd1Sy2tfLzqQmd8tQCMTT9Ee36MJXWcNgQ19UBKe8Dqmj5UWrb
+      ✔ Creates a liquidity position successfully (447ms)
+      ✔ Fails with invalid price range
+      ✔ Fails if position size exceeds protocol limit
+      ✔ Fails if position is not active
+      ✔ Fails if rebalance too frequent (915ms)
+    execute_rebalance
+      1) "before each" hook for "Executes rebalance successfully"
+    verify_x402_payment
+Verify x402 payment tx: 2hFGsF3JQcTT1VYcbsVRtJPaZCoGGRYvyZxHJ52qpv85oQDfLpQW2sHStLRxEYH4jXF7UN9TqtcFFketJyR5mDD8
+      ✔ Verifies x402 payment successfully (453ms)
+      ✔ Fails if payment too small
+    collect_fees
+No fees to collect (expected in test scenario)
+      ✔ Collects fees successfully
+Collecting fees from: 9uxhU7DrVbP6Qk9ZutKWEBxRj2ELNCqWaf1AUcoDqrtq
+Config: 61XGvKpujKm4fzdVbSrs8WZfPymwYQXveJ5q37XbVsAs
+Owner: 9S952ubX5iWVya2eLVt1X6mM15rhquQYKnFahJa5G9eH
+      ✔ Fails if no fees to collect (457ms)
+    approve_rebalance
+Approve rebalance tx: 4pGk3gEVqPkF7q23kWAs3bEARTyCXmjdYasbEanE9KkaWJcdN36XLkfRjybQJHfJJ3xiyvsC3b1Q1Mpm5BLVMJwZ
+      ✔ Approves rebalance decision successfully (929ms)
+      ✔ Fails if approval not required (467ms)
+    Integration flow
+Integration - Create position: 2Gz6gY1R99UiHkwqxdcaACbpnPx8PGSxG9ZYpGgRnssZ68wTqeMDDNSinduFuBwEp9c9rYrPDk2fwvpvzLtmttqX
+Integration - Create decision: 4zHEJbUmkj1CshdoMgBrtWF314jmxVvM3mtzPaLyo6th4FoQwfgpX3wwGeaVnKxGKPekK1KVBn8SFJVv4coztpJG
+Integration - Execute rebalance: 5Dih1kCRPANqBDQwV5PxgN4nmuM3DX2uPvTfPKpPCynjoXHay7JNCDrNKUAdTQ5JhqF1qcbVtwnHC7SB4vqspyJT
+✅ Integration test completed successfully!
+      ✔ Complete workflow: Initialize -> Create Position -> Rebalance -> Collect Fees (3688ms)
+
+
+  14 passing (11s)
+  1 failing
+
+  1) x-liquidity-engine
+       execute_rebalance
+         "before each" hook for "Executes rebalance successfully":
+     Error: AnchorError thrown in programs/x-liquidity-engine/src/lib.rs:146. Error Code: RebalanceTooFrequent. Error Number: 6004. Error Message: Rebalance too frequent.
+      at AnchorError.parse (node_modules/@coral-xyz/anchor/src/error.ts:152:14)
+      at translateError (node_modules/@coral-xyz/anchor/src/error.ts:277:35)
+      at MethodsBuilder.rpc [as _rpcFn] (node_modules/@coral-xyz/anchor/src/program/namespace/rpc.ts:35:29)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

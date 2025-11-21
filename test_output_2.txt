@@ -1,0 +1,104 @@
+    Finished `release` profile [optimized] target(s) in 0.09s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.08s
+     Running unittests src/lib.rs (/Users/hiroyusai/src/x-liquidity-engine/target/debug/deps/x_liquidity_engine-01b7f7f7ab5cddc2)
+
+Found a 'test' script in the Anchor.toml. Running it as a test suite!
+
+Running test suite: "/Users/hiroyusai/src/x-liquidity-engine/Anchor.toml"
+
+yarn run v1.22.22
+warning ../../package.json: No license field
+$ /Users/hiroyusai/src/x-liquidity-engine/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
+(node:50105) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:50105) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/hiroyusai/src/x-liquidity-engine/package.json.
+
+
+  x-liquidity-engine
+Initializing protocol config...
+Protocol config initialized
+    initialize_protocol_config
+Protocol config already initialized, skipping test
+      ✔ Initializes protocol configuration successfully
+      ✔ Fails if called twice
+    create_liquidity_position
+Create liquidity position tx: 4mg5dPdQz2xEJ2Q4a1qmn9ZxDohepk2bew6qwN8TnUQvDh27aJecbJJtNehtJqTC7fCuLnDTWBQ7uJUhG2nkR6cG
+      ✔ Creates a liquidity position successfully (453ms)
+      1) Fails with invalid price range
+      2) Fails if position size exceeds protocol limit
+      ✔ Fails if position is not active
+      3) Fails if rebalance too frequent
+    execute_rebalance
+Provider wallet: AmSYugrtHAEZi3TDj3HP7qbjY1hw6uv1df1oFDMxKeb1
+Execute rebalance tx: 5wNCEAwtkX5CGUUJjURHAyFDaQYshjWr6fjEPmCHWxdjS8uFMxjEZtqkyRBHHgMhNEVknwyFPXNyQTdCmkVUAtVt
+      ✔ Executes rebalance successfully (455ms)
+      ✔ Fails with invalid execution status
+      4) Fails with slippage too high
+    verify_x402_payment
+Verify x402 payment tx: 1ixQiWVUzU1uQXzCZ7EV6vS94fiH89TH494tiRVvFvqx2w1sAxuWToDa7VZeXDrZ2N6ZvxGUD3gZbDee5VUMgtq
+      ✔ Verifies x402 payment successfully (445ms)
+      ✔ Fails if payment too small
+    collect_fees
+No fees to collect (expected in test scenario)
+      ✔ Collects fees successfully
+Collecting fees from: GtQwg76acqqKg6MzxokwzX5kdVpDoeKakQPTLz9Jjohb
+Config: 61XGvKpujKm4fzdVbSrs8WZfPymwYQXveJ5q37XbVsAs
+Owner: 7Vkd8M8YB6MbGqQuF225sU1qXbo7FpwD6yFbqsxZsTPR
+      ✔ Fails if no fees to collect (454ms)
+    approve_rebalance
+Approve rebalance tx: c5niJN22g4iLwEeHacFVHPoWnhtqT83eMs9TdJnsY2Yvzir1ATupxzmdZpQYwuAWU5ndNkxh76XNuqaCgQ2uMsS
+      ✔ Approves rebalance decision successfully (919ms)
+      ✔ Fails if approval not required (471ms)
+    Integration flow
+Integration - Create position: 5un2JjkSQofEKtvtL6xNmffqAPGctgcs8VNbrQU3W2ofQMTndg2jQnHkjtudmstZAuZrRmG6sg48DsiP9KdJjyxN
+Integration - Create decision: 5BFEkzhWQ5pmY5W3FLLJ9GqBN4HVoUU5CiLMPCG6EitMqqQMQg9oMYnTcwjhRagb5C4fW5HzfSxiwiAiNJiRzPKJ
+Integration - Execute rebalance: 4QcWx4CD73hwN3B7g6NaaqfHhXRbEEKaR5k3eFDae8ZivEnWcc1Y1gzym1CEF6twqJ71rBpgiPG3NuNSrZnzhMkJ
+✅ Integration test completed successfully!
+      ✔ Complete workflow: Initialize -> Create Position -> Rebalance -> Collect Fees (3654ms)
+
+
+  13 passing (11s)
+  4 failing
+
+  1) x-liquidity-engine
+       create_liquidity_position
+         Fails with invalid price range:
+     AssertionError: expected 'AnchorError caused by account: positi…' to include 'InvalidPriceRange'
+      at /Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts:234:35
+      at Generator.throw (<anonymous>)
+      at rejected (tests/x-liquidity-engine.ts:39:65)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+  2) x-liquidity-engine
+       create_liquidity_position
+         Fails if position size exceeds protocol limit:
+     AssertionError: expected 'AnchorError caused by account: positi…' to include 'ExceedsMaxPositionSize'
+      at /Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts:269:35
+      at Generator.throw (<anonymous>)
+      at rejected (tests/x-liquidity-engine.ts:39:65)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+  3) x-liquidity-engine
+       create_liquidity_position
+         Fails if rebalance too frequent:
+     AssertionError: expected 'AssertionError: Should have failed' to include 'RebalanceTooFrequent'
+      at /Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts:354:35
+      at Generator.next (<anonymous>)
+      at fulfilled (tests/x-liquidity-engine.ts:38:58)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+  4) x-liquidity-engine
+       execute_rebalance
+         Fails with slippage too high:
+     Error: AnchorError thrown in programs/x-liquidity-engine/src/lib.rs:146. Error Code: RebalanceTooFrequent. Error Number: 6004. Error Message: Rebalance too frequent.
+      at AnchorError.parse (node_modules/@coral-xyz/anchor/src/error.ts:152:14)
+      at translateError (node_modules/@coral-xyz/anchor/src/error.ts:277:35)
+      at MethodsBuilder.rpc [as _rpcFn] (node_modules/@coral-xyz/anchor/src/program/namespace/rpc.ts:35:29)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+
+
+error Command failed with exit code 4.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

@@ -1,0 +1,64 @@
+    Finished `release` profile [optimized] target(s) in 0.09s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src/lib.rs (/Users/hiroyusai/src/x-liquidity-engine/target/debug/deps/x_liquidity_engine-01b7f7f7ab5cddc2)
+
+Found a 'test' script in the Anchor.toml. Running it as a test suite!
+
+Running test suite: "/Users/hiroyusai/src/x-liquidity-engine/Anchor.toml"
+
+yarn run v1.22.22
+warning ../../package.json: No license field
+$ /Users/hiroyusai/src/x-liquidity-engine/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
+(node:53719) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:53719) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/hiroyusai/src/x-liquidity-engine/package.json.
+
+
+  x-liquidity-engine
+Initializing protocol config...
+Protocol config initialized
+    initialize_protocol_config
+Protocol config already initialized, skipping test
+      ✔ Initializes protocol configuration successfully
+      ✔ Fails if called twice
+    create_liquidity_position
+Create liquidity position tx: qWoC1G51ktnDxNRPaHhgxacjEt4hcwbQUWZAc4UfhxCdFCXekpmGZgnoAwkCRoPGLyCRy6wZXEzGEf3iCsywdVt
+      ✔ Creates a liquidity position successfully (448ms)
+      ✔ Fails with invalid price range
+      ✔ Fails if position size exceeds protocol limit
+      ✔ Fails if position is not active
+      ✔ Fails if rebalance too frequent (892ms)
+    execute_rebalance
+Provider wallet: AmSYugrtHAEZi3TDj3HP7qbjY1hw6uv1df1oFDMxKeb1
+Execute rebalance tx: 48iiGxJrxBbsoP65AJUfm2x1rRGWhyBnY6ifvEitMzjr1eumkNH1jwXZVRrUcxKSYsRtGJMmBdffgjZCaxwLLDdF
+      ✔ Executes rebalance successfully (469ms)
+      ✔ Fails with invalid execution status (451ms)
+      ✔ Fails with slippage too high (3408ms)
+    verify_x402_payment
+Verify x402 payment tx: 4YuyTL8CtxeJztH2f11688hV54k6D41GVD62R2ibyY7VKUX1rp5c6koEpEb7AJ29quR6TKY2H9PPyh95Ph8XnkWU
+      ✔ Verifies x402 payment successfully (222ms)
+      ✔ Fails if payment too small
+    collect_fees
+No fees to collect (expected in test scenario)
+      ✔ Collects fees successfully
+Collecting fees from: 64xv5AcvVgc2KiA1YdRB4fjZCiih2HaLJdidpx27VhTV
+Config: 61XGvKpujKm4fzdVbSrs8WZfPymwYQXveJ5q37XbVsAs
+Owner: CVUEmuG8aPj1hk6Ghpt2cjx4KZsmp255GFieu3zEaceV
+      ✔ Fails if no fees to collect (451ms)
+    approve_rebalance
+Approve rebalance tx: 4iQwRpNAQ2kecxUkUzQapwxuu1SD8xgiSAVhAWpj8DEpT26hDEnb3VTDvNkT4CpBw4g9ZYCGyx9sqDcqHi2gBjZ3
+      ✔ Approves rebalance decision successfully (923ms)
+      ✔ Fails if approval not required (468ms)
+    Integration flow
+Integration - Create position: 2jM7tdYgkDtsT4VfxzXMZi9ghyXLt7EepsqcmPJ3fjLaWN8QzwkmpAzR7ov8hGfEjt1yyJWr2CLR8XCJYdSpvLJp
+Integration - Create decision: jYvWHEyFuKp5MQ7GnA2LfahGnpGPLPeDPfWC1uXHs1ZWsBYVKCQEpVAisfXfGUTvdx4RJ9z5GKWSrb3Hyt299y9
+Integration - Execute rebalance: 5dBNGkKDSVkW3yT1gRU5Z1kex8bMG7wecJLuky6a586QED7yofzosRnmyTDYbLzTvkK1bc9KmGtT9a3GScrD54iR
+✅ Integration test completed successfully!
+      ✔ Complete workflow: Initialize -> Create Position -> Rebalance -> Collect Fees (3671ms)
+
+
+  17 passing (17s)
+
+Done in 18.34s.

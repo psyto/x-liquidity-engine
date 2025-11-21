@@ -1,0 +1,78 @@
+    Finished `release` profile [optimized] target(s) in 0.09s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src/lib.rs (/Users/hiroyusai/src/x-liquidity-engine/target/debug/deps/x_liquidity_engine-01b7f7f7ab5cddc2)
+
+Found a 'test' script in the Anchor.toml. Running it as a test suite!
+
+Running test suite: "/Users/hiroyusai/src/x-liquidity-engine/Anchor.toml"
+
+yarn run v1.22.22
+warning ../../package.json: No license field
+$ /Users/hiroyusai/src/x-liquidity-engine/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
+(node:51646) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51646) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/hiroyusai/src/x-liquidity-engine/package.json.
+
+
+  x-liquidity-engine
+Initializing protocol config...
+Protocol config initialized
+    initialize_protocol_config
+Protocol config already initialized, skipping test
+      ✔ Initializes protocol configuration successfully
+      ✔ Fails if called twice
+    create_liquidity_position
+Create liquidity position tx: 2W6db57Jo2MPEH9JQgBUf41X2nNyjdMUirH9eBth4QYR2MS9vetA4Ua62UB8jYCwY8gaS8GiJv4KWSSsfj4uUNdN
+      ✔ Creates a liquidity position successfully (439ms)
+      ✔ Fails with invalid price range
+      ✔ Fails if position size exceeds protocol limit
+      ✔ Fails if position is not active
+      ✔ Fails if rebalance too frequent (894ms)
+    execute_rebalance
+Provider wallet: AmSYugrtHAEZi3TDj3HP7qbjY1hw6uv1df1oFDMxKeb1
+Pre-execution status: {"executed":{}}
+Requires approval: false
+      1) Executes rebalance successfully
+      ✔ Fails with invalid execution status
+      ✔ Fails with slippage too high (3411ms)
+    verify_x402_payment
+Verify x402 payment tx: 2sk4ND1afKhq9MNvTf6EmiwM14edbCdVGDbXUEthYaryX5APj7uiU9zfb1PmkajDQZGiGx8A3Y2Q22mpdBXaSHM1
+      ✔ Verifies x402 payment successfully (246ms)
+      ✔ Fails if payment too small
+    collect_fees
+No fees to collect (expected in test scenario)
+      ✔ Collects fees successfully
+Collecting fees from: 933TfKVhFKqbtDfAqh7t21X5WcB9j5XgZrMmaLYgfaN
+Config: 61XGvKpujKm4fzdVbSrs8WZfPymwYQXveJ5q37XbVsAs
+Owner: FZ2dbecfek1MwbRrE1wNo97FHyMSQ5KWKbkmGLU23Dhx
+      ✔ Fails if no fees to collect (453ms)
+    approve_rebalance
+Approve rebalance tx: 4dLB5nBdbc5HNw1x5XvzmU2jfGiqyB6z31GUt2KGi2Q2sBYnGx252QfUxmNLtvaQSQ2s6d32BsH3TfvvK5tyxEAr
+      ✔ Approves rebalance decision successfully (922ms)
+      ✔ Fails if approval not required (474ms)
+    Integration flow
+Integration - Create position: 5NNoQhpZATHmjNmr9TWBhKx4bh9UjD8M5M3qQ6cJcjHRTQox5gijcqdZj7BMRVZCbmzJFW7pZaRYPW6sWAfinrh3
+Integration - Create decision: 2CSwqHr6SSMEvAEpP8xiWDky5D9sN4yywuMY4t83LxkscrTNEWkpsjXZGCKd6FWHQcN92jpihu7soTcsi2nCHRMJ
+Integration - Execute rebalance: 4cfoV1HwtV51H5PXSMaXfAbRjRZL2xz9ook7KF3q4KvJpUrUXDXcDbqwRV5GPwQT2y6BuTvBhEZEQA2b9aG83san
+✅ Integration test completed successfully!
+      ✔ Complete workflow: Initialize -> Create Position -> Rebalance -> Collect Fees (3633ms)
+
+
+  16 passing (14s)
+  1 failing
+
+  1) x-liquidity-engine
+       execute_rebalance
+         Executes rebalance successfully:
+     Error: AnchorError thrown in programs/x-liquidity-engine/src/lib.rs:213. Error Code: InvalidExecutionStatus. Error Number: 6005. Error Message: Invalid execution status.
+      at AnchorError.parse (node_modules/@coral-xyz/anchor/src/error.ts:152:14)
+      at translateError (node_modules/@coral-xyz/anchor/src/error.ts:277:35)
+      at MethodsBuilder.rpc [as _rpcFn] (node_modules/@coral-xyz/anchor/src/program/namespace/rpc.ts:35:29)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

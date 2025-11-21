@@ -1,0 +1,113 @@
+    Finished `release` profile [optimized] target(s) in 0.08s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src/lib.rs (/Users/hiroyusai/src/x-liquidity-engine/target/debug/deps/x_liquidity_engine-01b7f7f7ab5cddc2)
+
+Found a 'test' script in the Anchor.toml. Running it as a test suite!
+
+Running test suite: "/Users/hiroyusai/src/x-liquidity-engine/Anchor.toml"
+
+yarn run v1.22.22
+warning ../../package.json: No license field
+$ /Users/hiroyusai/src/x-liquidity-engine/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
+(node:49637) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:49637) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/hiroyusai/src/x-liquidity-engine/package.json.
+
+
+  x-liquidity-engine
+Initializing protocol config...
+Protocol config initialized
+    initialize_protocol_config
+Protocol config already initialized, skipping test
+      ✔ Initializes protocol configuration successfully
+      ✔ Fails if called twice
+    create_liquidity_position
+Create liquidity position tx: 5TLdQiMybTojYJ3vW8ANTboGTiza7aj5fmStiweh27bJi4m7devTbLKV8ibjePHxGx2GDyZmmSkqxVSHYRyzSGz9
+      ✔ Creates a liquidity position successfully (451ms)
+      1) Fails with invalid price range
+      2) Fails if position size exceeds protocol limit
+      ✔ Fails if position is not active
+      3) Fails if rebalance too frequent
+    execute_rebalance
+Provider wallet: AmSYugrtHAEZi3TDj3HP7qbjY1hw6uv1df1oFDMxKeb1
+Execute rebalance tx: 3gTsNxN3YfTbgQUZWvntFpMsjh3eKiCXUxCoKUQV9fH6nRGo8wguP5K2nSe5GqAykc11TsXw2FyBJ6gRxbL7Cepz
+      ✔ Executes rebalance successfully (466ms)
+      ✔ Fails with invalid execution status
+      4) Fails with slippage too high
+    verify_x402_payment
+Verify x402 payment tx: ChodELfwzaScNMBQAbSfsn7FXvB7SWCPctrfhYzqgxJJoj1NdZssVv7fCgSHBVdkMbyEcJeH2eJQ9xdSU4f48EX
+      ✔ Verifies x402 payment successfully (446ms)
+      ✔ Fails if payment too small
+    collect_fees
+No fees to collect (expected in test scenario)
+      ✔ Collects fees successfully
+Collecting fees from: 13sPCGSnuQXJCHcoYExGthNV5BwFNK3MG2eLd6vkhKuG
+Config: 61XGvKpujKm4fzdVbSrs8WZfPymwYQXveJ5q37XbVsAs
+Owner: 7d1t413MR4EnEyfuVCQR2gPRPQVKudQVFGBqQCdjkxQb
+      ✔ Fails if no fees to collect (443ms)
+    approve_rebalance
+      5) Approves rebalance decision successfully
+      ✔ Fails if approval not required (460ms)
+    Integration flow
+Integration - Create position: wJjvqHNqgJ99uf4rg4aKSUc6TFFFXKBSSFj9YiNwamAm2nxPgjtq9MwAGRcFriFCoBzEQheZPp3fgNnpjWJNFt3
+Integration - Create decision: 3L1QuhhqetP8fUpVyTuVdS2ds4Vj1PB4pHWEYaFhVALLq3JZFQH8T2Lz6cJQJyyMakqDB4n4AE4C4kJGMRYeK2Qp
+Integration - Execute rebalance: 2bvNQzuVM65vxQaRRS9LW1Q8dXg7KndRHvPh8UEwNqt5Ed5roJsj4ZUQuCEKmrdqxu8TssFGduAkRKaDDVMYDUku
+✅ Integration test completed successfully!
+      ✔ Complete workflow: Initialize -> Create Position -> Rebalance -> Collect Fees (3626ms)
+
+
+  12 passing (10s)
+  5 failing
+
+  1) x-liquidity-engine
+       create_liquidity_position
+         Fails with invalid price range:
+     AssertionError: expected 'AnchorError caused by account: positi…' to include 'InvalidPriceRange'
+      at /Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts:234:35
+      at Generator.throw (<anonymous>)
+      at rejected (tests/x-liquidity-engine.ts:39:65)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+  2) x-liquidity-engine
+       create_liquidity_position
+         Fails if position size exceeds protocol limit:
+     AssertionError: expected 'AnchorError caused by account: positi…' to include 'ExceedsMaxPositionSize'
+      at /Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts:269:35
+      at Generator.throw (<anonymous>)
+      at rejected (tests/x-liquidity-engine.ts:39:65)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+  3) x-liquidity-engine
+       create_liquidity_position
+         Fails if rebalance too frequent:
+     AssertionError: expected 'AssertionError: Should have failed' to include 'RebalanceTooFrequent'
+      at /Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts:354:35
+      at Generator.next (<anonymous>)
+      at fulfilled (tests/x-liquidity-engine.ts:38:58)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+  4) x-liquidity-engine
+       execute_rebalance
+         Fails with slippage too high:
+     Error: AnchorError thrown in programs/x-liquidity-engine/src/lib.rs:146. Error Code: RebalanceTooFrequent. Error Number: 6004. Error Message: Rebalance too frequent.
+      at AnchorError.parse (node_modules/@coral-xyz/anchor/src/error.ts:152:14)
+      at translateError (node_modules/@coral-xyz/anchor/src/error.ts:277:35)
+      at MethodsBuilder.rpc [as _rpcFn] (node_modules/@coral-xyz/anchor/src/program/namespace/rpc.ts:35:29)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+  5) x-liquidity-engine
+       approve_rebalance
+         Approves rebalance decision successfully:
+     Error: provided too many arguments 164,100,-600,600,1600000000000000000,2600000000000000000,v1.0.0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,v1.0.0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4000,5000,9000,2000,High risk rebalance,[object Object] to instruction createRebalanceDecision expecting: positionIndex,decisionIndex,newTickLower,newTickUpper,newPriceLower,newPriceUpper,aiModelVersion,aiModelHash,predictionConfidence,marketSentimentScore,volatilityMetric,whaleActivityScore,decisionReason
+      at splitArgsAndCtx (node_modules/@coral-xyz/anchor/src/program/context.ts:92:13)
+      at txFn (node_modules/@coral-xyz/anchor/src/program/namespace/transaction.ts:17:38)
+      at MethodsBuilder.rpc [as _rpcFn] (node_modules/@coral-xyz/anchor/src/program/namespace/rpc.ts:21:18)
+      at MethodsBuilder.rpc (node_modules/@coral-xyz/anchor/src/program/namespace/methods.ts:434:17)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+
+
+error Command failed with exit code 5.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

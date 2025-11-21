@@ -1,0 +1,93 @@
+    Finished `release` profile [optimized] target(s) in 0.08s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src/lib.rs (/Users/hiroyusai/src/x-liquidity-engine/target/debug/deps/x_liquidity_engine-01b7f7f7ab5cddc2)
+
+Found a 'test' script in the Anchor.toml. Running it as a test suite!
+
+Running test suite: "/Users/hiroyusai/src/x-liquidity-engine/Anchor.toml"
+
+yarn run v1.22.22
+warning ../../package.json: No license field
+$ /Users/hiroyusai/src/x-liquidity-engine/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
+(node:53335) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:53335) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/hiroyusai/src/x-liquidity-engine/package.json.
+
+
+  x-liquidity-engine
+Initializing protocol config...
+Protocol config initialized
+    initialize_protocol_config
+Protocol config already initialized, skipping test
+      ✔ Initializes protocol configuration successfully
+      ✔ Fails if called twice
+    create_liquidity_position
+Create liquidity position tx: 4QgVAaEhNcEJKk3kLd2nZyaZAgJBhTSmwXQNRvbrroeRvdBVn1TPicDTZpnywarEKBw3ECrApdew7gYMeyL45HaT
+      ✔ Creates a liquidity position successfully (444ms)
+      ✔ Fails with invalid price range
+      ✔ Fails if position size exceeds protocol limit
+      ✔ Fails if position is not active
+      ✔ Fails if rebalance too frequent (890ms)
+    execute_rebalance
+Provider wallet: AmSYugrtHAEZi3TDj3HP7qbjY1hw6uv1df1oFDMxKeb1
+Execute rebalance tx: ueSz468oDcN9ggGo3Wfe8nJYS4QVMee1aL5qsZy6y7BVEHf2ct8rPB8TZePx8gooMi3nVtLCSfPHrTzdtzmxG1m
+      ✔ Executes rebalance successfully (465ms)
+      1) Fails with invalid execution status
+      2) Fails with slippage too high
+    verify_x402_payment
+Verify x402 payment tx: 9soB9YDpTsAKqM4fJrvpcoGg4mWhK1PzLcuihrfutj8uJAJEq7tdxrbgqknuXsvr8yQz1z1bitJcfneLVeJgaor
+      ✔ Verifies x402 payment successfully (441ms)
+      ✔ Fails if payment too small
+    collect_fees
+No fees to collect (expected in test scenario)
+      ✔ Collects fees successfully
+Collecting fees from: Ghigdxf81t7E3dgvd4U48csuZRXob7DXAypDA374pPr2
+Config: 61XGvKpujKm4fzdVbSrs8WZfPymwYQXveJ5q37XbVsAs
+Owner: 3sGxckR4KpE498K5Ja5SoXFh3GkrHxUCbUxmJhVDZ2DH
+      ✔ Fails if no fees to collect (448ms)
+    approve_rebalance
+Approve rebalance tx: BigwM4HCG8XQrQvbiFc9GiWAsi11e16vDUEQAd8AZViMh4aDypJbnss2esoYe1EusR5hkZK3G5A99HcwiGhZsgC
+      ✔ Approves rebalance decision successfully (918ms)
+      ✔ Fails if approval not required (469ms)
+    Integration flow
+Integration - Create position: 5ikNKWNaLySG3S7eKsHqfvFrWMEQvYwFmM2LReoqRFTUm1dAoDobJ6FmkTYaWET25iBxTYB9Zt3R9sDzv3vLKvZu
+Integration - Create decision: 5f5uFKz4oouXvMCBPdeQrkdQgmZEsCGnbqeVj6VUaeZHae2jP56YqFsVwqtZZFrj9XyDPNwTJhM9uFFjx8FrMzX3
+Integration - Execute rebalance: 2awXP5QXaYqEcf612t6knC42uE8hswg8AEekAv93w8DP9TszVP2xHi7XqT4dud8SvHQXwqmmdah3PMLZEdBhpi8L
+✅ Integration test completed successfully!
+      ✔ Complete workflow: Initialize -> Create Position -> Rebalance -> Collect Fees (3676ms)
+
+
+  15 passing (14s)
+  2 failing
+
+  1) x-liquidity-engine
+       execute_rebalance
+         Fails with invalid execution status:
+     AssertionError: expected 'AssertionError: Should have failed' to include 'InvalidExecutionStatus'
+      at /Users/hiroyusai/src/x-liquidity-engine/tests/x-liquidity-engine.ts:536:35
+      at Generator.next (<anonymous>)
+      at fulfilled (tests/x-liquidity-engine.ts:38:58)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+  2) x-liquidity-engine
+       execute_rebalance
+         Fails with slippage too high:
+     RangeError: The value of "value" is out of range. It must be >= 0 and <= 255. Received 298
+      at writeU_Int8 (node:internal/buffer:747:11)
+      at Buffer.writeUIntLE (node:internal/buffer:661:12)
+      at UInt.encode (node_modules/buffer-layout/lib/Layout.js:578:7)
+      at Structure.encode (node_modules/buffer-layout/lib/Layout.js:1263:26)
+      at BorshInstructionCoder.encode (node_modules/@coral-xyz/anchor/src/coder/borsh/instruction.ts:53:32)
+      at /Users/hiroyusai/src/x-liquidity-engine/node_modules/@coral-xyz/anchor/src/program/namespace/index.ts:62:43
+      at ix (node_modules/@coral-xyz/anchor/src/program/namespace/instruction.ts:60:15)
+      at txFn (node_modules/@coral-xyz/anchor/src/program/namespace/transaction.ts:24:14)
+      at MethodsBuilder.rpc [as _rpcFn] (node_modules/@coral-xyz/anchor/src/program/namespace/rpc.ts:21:18)
+      at MethodsBuilder.rpc (node_modules/@coral-xyz/anchor/src/program/namespace/methods.ts:434:17)
+      at processTicksAndRejections (node:internal/process/task_queues:105:5)
+
+
+
+error Command failed with exit code 2.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
